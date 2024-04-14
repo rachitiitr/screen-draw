@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const context = canvas.getContext('2d');
     const colorButtons = document.querySelectorAll('.colorButton');
     const pickColorButton = document.getElementById('pickColorButton');
+    const strokeWidthRange = document.getElementById('strokeWidthRange');
+
 
     const ratio = window.devicePixelRatio;
 
@@ -24,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastX = 0;
     let lastY = 0;
     let strokeColor = 'black'; // Default stroke color
+    let strokeWidth = parseInt(strokeWidthRange.value); // Default stroke width
 
     function getMousePos(event) {
         const rect = canvas.getBoundingClientRect();
@@ -45,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isDrawing) return;
         const pos = getMousePos(event);
         context.strokeStyle = strokeColor; // Set stroke color
-        context.lineWidth = 2; // Set line width
+        context.lineWidth = strokeWidth;
         context.lineCap = 'round'; // Set line cap style
         context.beginPath();
         context.moveTo(lastX, lastY);
@@ -75,5 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (newColor) {
             strokeColor = newColor;
         }
+    });
+
+    strokeWidthRange.addEventListener('input', () => {
+        strokeWidth = parseInt(strokeWidthRange.value);
     });
 });

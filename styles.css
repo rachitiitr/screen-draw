@@ -49,3 +49,7 @@ canvas {
     height: 40px;
     margin-top: 10px;
 }
+
+#strokeWidthControl {
+    z-index: 200;
+}
