@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('canvas');
     const context = canvas.getContext('2d');
     const colorButtons = document.querySelectorAll('.colorButton');
-    const pickColorButton = document.getElementById('pickColorButton');
+    const pickColorInput = document.getElementById('pickColorInput');
     const strokeWidthRange = document.getElementById('strokeWidthRange');
-
+    const toggleButton = document.getElementById('toggleButton');
 
     const ratio = window.devicePixelRatio;
 
@@ -72,15 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Pick color button event listener
-    pickColorButton.addEventListener('click', () => {
-        const newColor = prompt('Enter a color (e.g., "red", "#00ff00", "rgb(0, 0, 255)"):');
-        if (newColor) {
-            strokeColor = newColor;
-        }
+    pickColorInput.addEventListener('input', () => {
+        strokeColor = pickColorInput.value;
     });
 
     strokeWidthRange.addEventListener('input', () => {
         strokeWidth = parseInt(strokeWidthRange.value);
+    });
+
+    toggleButton.addEventListener('click', () => {
+        buttonContainer.classList.toggle('hidden');
     });
 });
