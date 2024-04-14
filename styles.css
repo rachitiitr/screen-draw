@@ -65,3 +65,7 @@ canvas {
 .hidden {
     display: none !important;
 }
+
+#buttonContainer button {
+    z-index: 200;
+}
