@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "package-mac": "electron-packager . ScreenDraw@rachitiitr --platform=darwin --arch=x64 --out=dist/ --overwrite"
   },
   "keywords": [],
   "author": "",
